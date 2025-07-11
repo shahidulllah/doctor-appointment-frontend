@@ -56,7 +56,7 @@ export default function LoginPage() {
           onChange={handleChange}
           required
         />
-        <button className="w-full bg-blue-600 text-white py-2 rounded">
+        <button className="w-full text-black py-2 rounded">
           Login
         </button>
       </form>
