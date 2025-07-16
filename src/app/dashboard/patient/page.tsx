@@ -1,11 +1,13 @@
 "use client";
-import { useSelector } from "react-redux";
+
 import { useAuth } from "@/hooks/useAuth";
+import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { Loader2 } from "lucide-react";
 
-export default function DoctorDashboard() {
+export default function PatientDashboard() {
   useAuth();
+
   const { user, loading } = useSelector((state: RootState) => state.auth);
 
   if (loading)
@@ -15,11 +17,12 @@ export default function DoctorDashboard() {
         <Loader2 />
       </p>
     );
-  if (!user || user.role !== "doctor") return <p>Access denied</p>;
+  if (!user || user.role !== "patient") return <p>Access denied</p>;
 
   return (
     <div className="p-4">
-      <h1 className="text-xl font-bold">Welcome, Dr. {user.name}</h1>
+      <h1 className="text-2xl font-bold">Welcome, {user.name}</h1>
+      <p className="text-gray-700 mt-2">This is your patient dashboard.</p>
     </div>
   );
 }
