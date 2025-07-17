@@ -22,7 +22,10 @@ export default function LoginPage() {
     e.preventDefault();
     setError("");
     try {
-      const res = await api.post(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/login`, formData);
+      const res = await api.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/auth/login`,
+        formData
+      );
       const { role } = res.data;
 
       if (role === "doctor") {
@@ -56,9 +59,7 @@ export default function LoginPage() {
           onChange={handleChange}
           required
         />
-        <button className="w-full text-black py-2 rounded">
-          Login
-        </button>
+        <button className="w-full text-black py-2 rounded">Login</button>
       </form>
     </main>
   );
