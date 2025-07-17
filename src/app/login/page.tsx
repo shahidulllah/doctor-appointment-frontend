@@ -22,7 +22,7 @@ export default function LoginPage() {
     e.preventDefault();
     setError("");
     try {
-      const res = await api.post("/auth/login", formData);
+      const res = await api.post(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/login`, formData);
       const { role } = res.data;
 
       if (role === "doctor") {
