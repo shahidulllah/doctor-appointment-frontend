@@ -9,7 +9,9 @@ export const useAuth = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await api.get(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/me`);
+        const res = await api.get(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/auth/me`
+        );
         dispatch(setUser(res.data));
       } catch {
         dispatch(clearUser());
