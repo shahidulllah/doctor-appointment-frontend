@@ -23,7 +23,10 @@ export default function DoctorRegister() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await api.post(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/register-doctor`, formData);
+      await api.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/auth/register-doctor`,
+        formData
+      );
       router.push("/login");
     } catch (err: any) {
       alert(err.response?.data?.error || "Registration failed");
