@@ -15,6 +15,7 @@ export default function DoctorDashboard() {
         <Loader2 />
       </p>
     );
+    console.log("user", user);
   if (!user || user.role !== "doctor") return <p>Access denied</p>;
 
   return (

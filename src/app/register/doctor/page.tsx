@@ -19,16 +19,19 @@ export default function DoctorRegister() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+  
     try {
-      await api.post(
+     const res = await api.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/auth/register-doctor`,
         formData
       );
+      console.log("res", res);
       router.push("/login");
     } catch (err: any) {
+      console.log(err);
       alert(err.response?.data?.error || "Registration failed");
     }
   };
