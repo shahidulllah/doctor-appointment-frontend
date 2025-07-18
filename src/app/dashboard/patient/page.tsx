@@ -12,10 +12,10 @@ export default function PatientDashboard() {
 
   if (loading)
     return (
-      <p className="text-center mt-12">
+      <div className="text-center mt-12">
         Loading...
         <Loader2 />
-      </p>
+      </div>
     );
   if (!user || user.role !== "patient") return <p>Access denied</p>;
 

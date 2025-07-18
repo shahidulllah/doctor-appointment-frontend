@@ -10,10 +10,10 @@ export default function DoctorDashboard() {
 
   if (loading)
     return (
-      <p className="text-center mt-12">
+      <div className="text-center mt-12">
         Loading...
         <Loader2 />
-      </p>
+      </div>
     );
     console.log("user", user);
   if (!user || user.role !== "doctor") return <p>Access denied</p>;
